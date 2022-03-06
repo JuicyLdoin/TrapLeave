@@ -1,0 +1,4 @@
+name: TrapLeavePlugin
+version: '${project.version}'
+main: ua.ldoin.trapleave.TrapLeavePlugin
+api-version: 1.18

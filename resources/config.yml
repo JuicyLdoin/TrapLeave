@@ -1,0 +1,39 @@
+options:
+  # recharge is specified in seconds!
+  recharge: 10
+  # the height to which the player will jump (in blocks)
+  height: 20
+  # remove 1 leaver after use
+  remove: true
+  # type of leaver (TELEPORT/JUMP)
+  type: TELEPORT
+  # get fall damage on fall after user leaver
+  fall_damage: false
+  # work only on hand (HAND/OFF_HAND)
+  work_on_hand: HAND
+
+  # leaver item
+  leaver:
+    material: FEATHER
+    data: 0
+
+    name: "&cLeaver"
+    lore: []
+
+  # EFFECT-POWER TIME(in seconds)
+  effects:
+    - SPEED-2 60
+
+message:
+  enabled: true
+  messages:
+    use: "&aYou used %leaver%"
+    recharge: "&cWait some more %time% seconds to use %leaver%!"
+    recharged: "&aYour %leaver% recharged!"
+
+    no_permissions: "&cSorry, but you don't have permissions to this command!"
+    not_found: "&cPlayer %player% not found!"
+    not_an_integer: "&cThe number is not an integer!!"
+
+    inventory_is_full: "&c%player%'s inventory is full!"
+    give: "&aYou issued %amount% %leaver% to %player%!"
