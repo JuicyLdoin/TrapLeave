@@ -2,6 +2,7 @@ package ua.ldoin.trapleave.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import ua.ldoin.trapleave.TrapLeavePlugin;
 
@@ -34,6 +35,26 @@ public class PlayerManager {
 
     }
 
+    public boolean hasLeaver() {
+
+        ItemStack leaver = TrapLeavePlugin.plugin.getLeaver().clone();
+        leaver.setAmount(1);
+
+        for (ItemStack itemStack : player.getInventory().getContents())
+            if (itemStack != null) {
+
+                ItemStack itemStack1 = itemStack.clone();
+                itemStack1.setAmount(1);
+
+                if (leaver.equals(itemStack1))
+                    return true;
+
+            }
+
+        return false;
+
+    }
+
     public boolean hasLeaverRecharge() {
 
         return leaverRecharge != -1;
@@ -62,7 +83,9 @@ public class PlayerManager {
 
                     if (leaverRecharge == -1) {
 
-                        TrapLeavePlugin.plugin.sendMessage(player, config.getString("message.messages.recharged"));
+                        if (hasLeaver())
+                            TrapLeavePlugin.plugin.sendMessage(player, config.getString("message.messages.recharged"));
+
                         cancel();
 
                     }
