@@ -1,4 +1,6 @@
-name: TrapLeavePlugin
-version: '${project.version}'
+name: TrapLeave
 main: ua.ldoin.trapleave.TrapLeavePlugin
-api-version: 1.18
+version: '${project.version}'
+author: Ldoin
+commands:
+  leaver:

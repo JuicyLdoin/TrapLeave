@@ -1,7 +1,0 @@
-name: TrapLeave
-main: ua.ldoin.trapleave.TrapLeavePlugin
-version: 1.4
-author: Ldoin
-commands:
-  leaver:
-    description: TrapLeave command list
