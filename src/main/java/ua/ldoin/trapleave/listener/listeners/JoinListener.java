@@ -13,7 +13,7 @@ public class JoinListener implements Listener {
 
         Player player = event.getPlayer();
 
-        if (PlayerManager.getPlayerManager(player) != null)
+        if (PlayerManager.getPlayerManager(player) == null)
             new PlayerManager(player);
 
     }
