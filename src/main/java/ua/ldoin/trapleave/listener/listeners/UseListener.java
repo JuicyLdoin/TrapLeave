@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
@@ -45,7 +46,7 @@ public class UseListener implements Listener {
                                 if (type.equalsIgnoreCase("jump"))
                                     player.setVelocity(new Vector(0, height / 10, 0));
                                 else if (type.equalsIgnoreCase("teleport"))
-                                    player.teleport(player.getLocation().clone().add(0, height, 0));
+                                    player.teleport(player.getLocation().clone().add(0, height, 0), TeleportCause.CHORUS_FRUIT);
 
                                 if (config.getBoolean("options.remove"))
                                     if (item.getAmount() == 1)
