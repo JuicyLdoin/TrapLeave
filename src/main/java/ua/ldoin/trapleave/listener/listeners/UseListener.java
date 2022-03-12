@@ -13,16 +13,14 @@ import org.bukkit.util.Vector;
 import ua.ldoin.trapleave.TrapLeavePlugin;
 import ua.ldoin.trapleave.utils.PlayerManager;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class UseListener implements Listener {
 
     private final FileConfiguration config = TrapLeavePlugin.plugin.getConfig();
 
     @EventHandler
-    public void use(PlayerInteractEvent event) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void use(PlayerInteractEvent event) {
 
-        if (event.getHand().equals(EquipmentSlot.valueOf(config.getString("options.work_on_hand"))))
+        if (event.getHand() != null && event.getHand().equals(EquipmentSlot.valueOf(config.getString("options.work_on_hand"))))
             if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
                 if (event.getItem() != null) {
 
@@ -41,6 +39,10 @@ public class UseListener implements Listener {
                             else {
 
                                 String type = config.getString("options.type");
+
+                                if (type == null)
+                                    type = "jump";
+
                                 int height = config.getInt("options.height");
 
                                 if (type.equalsIgnoreCase("jump"))
