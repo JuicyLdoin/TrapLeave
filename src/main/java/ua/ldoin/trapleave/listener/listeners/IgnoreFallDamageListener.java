@@ -26,10 +26,9 @@ public class IgnoreFallDamageListener implements Listener {
         if (event.getEntity() instanceof Player) {
 
             Player player = (Player) event.getEntity();
-            PlayerManager manager = PlayerManager.getPlayerManager(player);
 
             if (event.getCause().equals(EntityDamageEvent.DamageCause.FALL))
-                if (fall.contains(player) && manager.hasLeaverRecharge()) {
+                if (fall.contains(player)) {
 
                     event.setCancelled(true);
                     fall.remove(player);
