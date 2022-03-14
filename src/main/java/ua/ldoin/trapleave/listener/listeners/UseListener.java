@@ -51,10 +51,7 @@ public class UseListener implements Listener {
                                     player.teleport(player.getLocation().clone().add(0, height, 0), PlayerTeleportEvent.TeleportCause.ENDER_PEARL);
 
                                 if (config.getBoolean("options.remove"))
-                                    if (item.getAmount() == 1)
-                                        player.getInventory().remove(item);
-                                    else
-                                        item.setAmount(item.getAmount() - 1);
+                                    item.setAmount(item.getAmount() - 1);
 
                                 if (config.contains("options.effects"))
                                     TrapLeavePlugin.plugin.getEffectManager().addEffectsFromStringList(player, config.getStringList("options.effects"));
